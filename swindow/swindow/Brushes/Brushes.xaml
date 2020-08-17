@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/swindow;component/swindow/Brushes/Dark.Blue.Green.xaml"/>
+        <ResourceDictionary Source="/swindow;component/swindow/Brushes/Dark.Blue.Violet.xaml"/>
+        <ResourceDictionary Source="/swindow;component/swindow/Brushes/Light.Blue.Brown.xaml"/>
+        <ResourceDictionary Source="/swindow;component/swindow/Brushes/Light.Blue.Pastel.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

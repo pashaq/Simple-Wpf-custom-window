@@ -1,0 +1,70 @@
+﻿<swnd:SWindow x:Class="Exemple.SimpleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exemple"
+        xmlns:swnd="clr-namespace:swindow;assembly=swindow"
+        mc:Ignorable="d"
+        Title="Exemple window"
+                DocumentName="Simple window"
+                Style="{DynamicResource SWindowStyle}"
+                WindowToolBar="{DynamicResource WindowToolBarKey}"
+                WindowIcon="{DynamicResource IconImageKey}"
+                >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/swindow;component/swindow/Window/SWindowStyle.xaml"/>
+                <ResourceDictionary Source="/swindow;component/swindow/Images/DrawingImages1.xaml"/>
+                <ResourceDictionary Source="HelpDocument.xaml"/>
+                <ResourceDictionary Source="AboutDocument.xaml"/>
+                <ResourceDictionary Source="TextControl/TextDocument.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Image 
+                Source="{DynamicResource codingDrawingImage1}" 
+               x:Key="IconImageKey" Margin="5"/>
+            <Image Source="{DynamicResource settingsDrawingImage }" 
+               x:Key="SettingsImageKey" Margin="5"/>
+            <Image Source="{DynamicResource help_circleDrawingImage }" 
+               x:Key="HelpImageKey" Margin="5"/>
+
+            <swnd:WndToolBar x:Key="WindowToolBarKey">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                    <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Setting" 
+                    Content="{DynamicResource SettingsImageKey}" 
+                    Grid.Column="0"
+                    Click="Setting_Click"
+                    Padding="0" 
+                    ToolTip="Setting"
+                    Style="{DynamicResource WndButtonStyle}"/>
+                
+                <Button x:Name="Help" 
+                    Content="{DynamicResource HelpImageKey}" 
+                    Grid.Column="1" 
+                    Click="Help_Click"
+                    Padding="0"
+                    ToolTip="Help"
+                    Style="{DynamicResource WndButtonStyle}"/>
+
+            </swnd:WndToolBar>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid>
+
+        <local:TextControl x:Name="textControl"/>
+
+    </Grid>
+    
+    
+</swnd:SWindow>

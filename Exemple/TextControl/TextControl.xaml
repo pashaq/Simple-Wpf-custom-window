@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Exemple.TextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Exemple"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/TextControl/Settings.xaml"/>
+                <ResourceDictionary Source="/TextControl/Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Background="{DynamicResource Background}">
+        
+        <FlowDocumentScrollViewer x:Name="helpDoc"
+                                  Margin="8" 
+                                  VerticalScrollBarVisibility="Auto" 
+                                  Document="{DynamicResource TextDocument}" 
+                                  Style="{DynamicResource FlowDocViewerStyle}"
+                                  Foreground="{DynamicResource Foreground}"
+                                  />
+
+
+    </Grid>
+</UserControl>

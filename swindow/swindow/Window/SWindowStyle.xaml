@@ -1,0 +1,240 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:swindow">
+    
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/swindow;component/swindow/Window/Settings.xaml"/>
+        <ResourceDictionary Source="/swindow;component/swindow/Images/DrawingImages.xaml"/>
+        <ResourceDictionary Source="/swindow;component/swindow/Styles/Styles.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
+    <ContextMenu x:Key="WndContextMenu" Style="{DynamicResource ContextMenuStyle}" >
+
+        <MenuItem Header="Minimize"                   
+                  Template="{DynamicResource MenuItemControlTemplate}"
+                Command="{x:Static local:WndMoveBorder.MinimizeCommand}"/>
+
+        <MenuItem x:Name="maximizeMenuItem"  
+                  Template="{DynamicResource MenuItemControlTemplate}" 
+                  Header="Maximize"
+                  Command="{x:Static local:WndMoveBorder.MaximizeCommand}"/>
+
+        <MenuItem x:Name="restoreMenuItem"  
+                  Template="{DynamicResource MenuItemControlTemplate}" 
+                  Header="Restore"
+                  Command="{x:Static local:WndMoveBorder.RestoreCommand}"/>
+
+        <MenuItem Header="Close" 
+                  Template="{DynamicResource MenuItemControlTemplate}"
+                                Command="{x:Static local:WndMoveBorder.CloseCommand}"/>
+
+    </ContextMenu>
+    
+
+    <sys:Double x:Key="WindowWidth">900</sys:Double>
+    <sys:Double x:Key="WindowHeight">500</sys:Double>
+
+    <sys:Double x:Key="WindowMinWidth">200</sys:Double>
+    <sys:Double x:Key="WindowMinHeight">100</sys:Double>
+
+    <GridLength x:Key="WindowHeaderHeight">38</GridLength>
+    <Thickness x:Key="WindowHeaderMergin">4,0,4,0</Thickness>
+    <GridLength x:Key="WindowButtonWidth">28</GridLength>
+
+    <Thickness  x:Key="WindowBorderThickness">1</Thickness>
+
+    <WindowState x:Key="WindowState">Normal</WindowState>
+    <Rect x:Key="RestoreBounds">100, 50, 800, 400</Rect>
+
+    <WindowChrome x:Key="WindowMaximizedChrome"
+                  ResizeBorderThickness="0"
+                  GlassFrameThickness="0"
+                  CornerRadius="0"
+                  CaptionHeight="0"
+                  UseAeroCaptionButtons="False" />
+
+    <WindowChrome x:Key="WindowNormalizedChrome"                   
+                  ResizeBorderThickness="4"
+                  GlassFrameThickness="0"
+                  CornerRadius="0"
+                  CaptionHeight="0"
+                  UseAeroCaptionButtons="False" />
+
+    <Image x:Key="CloseImageKey" Source="{DynamicResource xDrawingImage}"/>
+    <Image x:Key="RestoreImageKey" Source="{DynamicResource minimizeDrawingImage}"/>
+    <Image x:Key="MaximizeImageKey" Source="{DynamicResource maximizeDrawingImage}"/>
+    <Image x:Key="MinimizeImageKey" Source="{DynamicResource minusDrawingImage}"/>
+
+
+    <Style x:Key="WndButtonStyle" TargetType="{x:Type Button}">
+
+        <Setter Property="Margin" Value="0,1"/>
+        <Setter Property="Padding" Value="8"/>
+
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}"/>
+        <Setter Property="Background" Value="{DynamicResource Background}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
+
+        <Setter Property="Template" Value="{DynamicResource ButtonTemplateKey}"/>
+
+    </Style>
+
+    <Style x:Key="WndTextBlockStyle" TargetType="{x:Type TextBlock}">
+
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}"/>
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
+        <Setter Property="FontStyle" Value="{DynamicResource FontStyle}"/>
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeight}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="4,0,4,0"/>
+
+    </Style>
+
+    <Style x:Key="SWindowStyle" TargetType="{x:Type local:SWindow}">
+
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="CanResize"/>
+        <Setter Property="WindowState" Value="Normal"/>
+        
+        <Setter Property="MinHeight" Value="{DynamicResource WindowMinHeight}"/>
+        <Setter Property="Width" Value="{DynamicResource WindowWidth}"/>
+        <Setter Property="Height" Value="{DynamicResource WindowHeight}"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource WindowBorderThickness}"/>
+        
+        <Setter Property="Foreground" Value="{DynamicResource Foreground}"/>
+        <Setter Property="Background" Value="{DynamicResource Background}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        
+        <Setter Property="FontSize" Value="{DynamicResource FontSize}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource FontFamily}"/>
+        <Setter Property="FontStyle" Value="{DynamicResource FontStyle}"/>
+        <Setter Property="FontWeight" Value="{DynamicResource FontWeight}"/>
+
+        <Setter Property="WindowChrome.WindowChrome" 
+                Value="{DynamicResource WindowNormalizedChrome}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SWindow}">
+
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}">
+
+                        <AdornerDecorator>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{DynamicResource WindowHeaderHeight}"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <local:WndMoveBorder
+                                    BorderBrush="{DynamicResource MiBorderBrush}"
+                                    Background="{DynamicResource MiBackground}"
+                                    BorderThickness="0,0,0,1" 
+                                    x:Name="moveBorder"
+                                    ContextMenu="{StaticResource WndContextMenu}">
+
+                                    <Grid Margin="6, 4">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                                            <ColumnDefinition Width="0.5*"/>
+                                            <ColumnDefinition x:Name="toolBarColumn" 
+                                                              Width="{Binding Width, ElementName=toolBar}"/>
+                                            <ColumnDefinition Width="0.45*"/>
+                                            <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                                            <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                                            <ColumnDefinition Width="{StaticResource WindowButtonWidth}"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <ContentPresenter Content="{TemplateBinding WindowIcon}"/>
+
+                                        <TextBlock x:Name="titleTextBlock" Grid.Column="1" 
+                                                   Text="{Binding Path=Title, 
+                            RelativeSource={RelativeSource FindAncestor, 
+                            AncestorType={x:Type local:SWindow}}}" 
+                                                   Style="{StaticResource WndTextBlockStyle}"/>
+
+                                        <ContentPresenter x:Name="toolBar"
+                                            Content="{TemplateBinding WindowToolBar}"
+                                                          Grid.Column="2"/>
+                                        
+                                        <TextBlock Grid.Column="3" x:Name="docTextBlock"
+                                                   Text="{Binding Path=DocumentName, 
+                            RelativeSource={RelativeSource FindAncestor, 
+                            AncestorType={x:Type local:SWindow}}}" 
+                                                   Style="{StaticResource WndTextBlockStyle}"
+                                                   HorizontalAlignment="Center"/>
+
+                                        <Button Grid.Column="4" 
+                                                              Content="{StaticResource MinimizeImageKey}"
+                                                              Style="{DynamicResource WndButtonStyle}"
+                                                ToolTip="Minimize"
+                                                Command="{x:Static local:WndMoveBorder.MinimizeCommand}"/>
+                                        
+                                        <Button Grid.Column="5" 
+                                                              Content="{StaticResource RestoreImageKey}"
+                                                              Style="{DynamicResource WndButtonStyle}"
+                                                                x:Name="restoreButton"
+                                                Panel.ZIndex="0"
+                                                ToolTip="Restore"
+                                                                Command="{x:Static local:WndMoveBorder.RestoreCommand}"/>                                        
+
+                                        <Button Grid.Column="5" 
+                                                              Content="{StaticResource MaximizeImageKey}"
+                                                              Style="{DynamicResource WndButtonStyle}"
+                                                                 x:Name="maximizeButton"
+                                                Panel.ZIndex="0"
+                                                Command="{x:Static local:WndMoveBorder.MaximizeCommand}"
+                                                ToolTip="Maximize"/>
+
+                                        <Button Grid.Column="6" 
+                                                              Content="{StaticResource CloseImageKey}"
+                                                              Style="{DynamicResource WndButtonStyle}"
+                                                Command="{x:Static local:WndMoveBorder.CloseCommand}"
+                                                ToolTip="Close"/>
+
+                                    </Grid>
+
+                                </local:WndMoveBorder>
+
+                                <ContentPresenter x:Name="clientContent" Grid.Row="1"/>
+
+                            </Grid>
+                        </AdornerDecorator>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="WindowMaximized" Value="True">
+
+                            <Setter TargetName="restoreButton" Property="Panel.ZIndex" Value="1"/>
+
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="WindowMaximized" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource Background}"/>
+                <Setter Property="WindowChrome.WindowChrome" 
+                        Value="{DynamicResource WindowMaximizedChrome}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+</ResourceDictionary>

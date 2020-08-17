@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                     
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                   xmlns:swnd="clr-namespace:swindow;assembly=swindow">
+    
+
+    <SolidColorBrush x:Key="Background" Color="#FF201C4F"/>
+    <SolidColorBrush x:Key="MiBackground" Color="#FF28226F"/>
+    <SolidColorBrush x:Key="HiBackground" Color="#FF483FAE"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF1C4F45"/>
+    <SolidColorBrush x:Key="MiBorderBrush" Color="#FF267768"/>
+    <SolidColorBrush x:Key="HiBorderBrush" Color="#FF38A893"/>
+    <SolidColorBrush x:Key="Foreground" Color="#FF4A9284"/>
+    <SolidColorBrush x:Key="MiForeground" Color="#FF62958C"/>
+    <SolidColorBrush x:Key="HiForeground" Color="#FF529D61"/>
+    <SolidColorBrush x:Key="RedBrush" Color="#FFA270B6"/>
+
+    <sys:Double x:Key="FontSize">16</sys:Double>
+    <FontFamily x:Key="FontFamily">Segoe UI</FontFamily>
+    <FontStyle x:Key="FontStyle">Normal</FontStyle>
+    <FontWeight x:Key="FontWeight">Normal</FontWeight>
+
+
+    <swnd:SettingList x:Key="SettingListKey">
+
+        <swnd:FontSetting
+                            Key="Font"
+                            Name="Font for text editor"
+                            Family="{StaticResource FontFamily}"
+                            Style="{StaticResource FontStyle}"
+                            Weight="{StaticResource FontWeight}"
+                            Size="{StaticResource FontSize}"
+                            />
+        
+        <swnd:BrushesSetting
+                            Key="Brushes"
+                            Name="Colors for text editor"
+                            Background="{StaticResource Background}"
+                            HiBackground="{StaticResource HiBackground}"
+                            MiBackground="{StaticResource MiBackground}"
+                            BorderBrush="{StaticResource BorderBrush}"
+                            MiBorderBrush="{StaticResource MiBorderBrush}"
+                            HiBorderBrush="{StaticResource HiBorderBrush}"
+                            Foreground="{StaticResource Foreground}"
+                            MiForeground="{StaticResource MiForeground}"
+                            HiForeground="{StaticResource HiForeground}"
+                            RedBrush="{StaticResource RedBrush}"
+                            />
+
+    </swnd:SettingList>
+
+    <swnd:SettingSet x:Key="SettingKey" 
+                      Set="{StaticResource SettingListKey}"
+                      Key="Text"
+                      Name="Text editor"
+                      />
+
+</ResourceDictionary>

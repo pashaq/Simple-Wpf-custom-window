@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                   >
+
+    <sys:String x:Key="BrushesName">Light.Blue.Pastel</sys:String>
+
+    <SolidColorBrush x:Key="Background" Color="#FFA6D4E3"/>
+    <SolidColorBrush x:Key="MiBackground" Color="#FFC2D8DF"/>
+    <SolidColorBrush x:Key="HiBackground" Color="#FFA3D1BC"/>
+
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF6F7BF1"/>
+    <SolidColorBrush x:Key="MiBorderBrush" Color="#FF3E53AE"/>
+    <SolidColorBrush x:Key="HiBorderBrush" Color="#FF816EB2"/>
+    
+    <SolidColorBrush x:Key="Foreground" Color="#FF322121"/>
+    <SolidColorBrush x:Key="MiForeground" Color="#FF142A14"/>
+    <SolidColorBrush x:Key="HiForeground" Color="#FF18484D"/>
+    
+    <SolidColorBrush x:Key="RedBrush" Color="#FFD3642D"/>
+
+</ResourceDictionary>

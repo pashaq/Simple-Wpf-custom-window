@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                   >
+
+    <sys:String x:Key="BrushesName">Dark.Blue.Violet</sys:String>
+
+    <SolidColorBrush x:Key="Background" Color="#FF20215E"/>
+    <SolidColorBrush x:Key="MiBackground" Color="#FF341461"/>
+    <SolidColorBrush x:Key="HiBackground" Color="#FF432A70"/>
+
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF30698B"/>
+    <SolidColorBrush x:Key="MiBorderBrush" Color="#FF53958A"/>
+    <SolidColorBrush x:Key="HiBorderBrush" Color="#FF88804A"/>
+    
+    <SolidColorBrush x:Key="Foreground" Color="#FF3D91BC"/>
+    <SolidColorBrush x:Key="MiForeground" Color="#FF4397B7"/>
+    <SolidColorBrush x:Key="HiForeground" Color="#FFB4B154"/>
+    
+    <SolidColorBrush x:Key="RedBrush" Color="#FF9039AB"/>
+
+</ResourceDictionary>
